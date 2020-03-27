@@ -1,5 +1,40 @@
 #include "C:\Users\antony\bin\cpp\ppp\std_lib_facilities.h"
 
+// exercices 4.8 - 4.9
+
+// int main()
+// {
+// 	constexpr int casesDamier = 64;
+// 	int noCase = 0;
+// 	double currentSquareRice = 0;
+// 	double totalRice = 0;
+
+// 	// for (int noCase = 1; noCase <= casesDamier; noCase++){
+// 	// 	currentSquareRice *=2;
+// 	// 	totalRice += currentSquareRice;
+// 	while (noCase < casesDamier){
+// 		if (!noCase){
+// 			noCase++;
+// 			currentSquareRice++;
+// 			totalRice++;
+// 			cout 
+// 		<< "Numéro de case : " << noCase 
+// 		<< " comporte " << currentSquareRice << " grains de riz. \t Total Damier : " 
+// 		<< totalRice <<"\n";
+// 			continue;
+// 		}
+// 		currentSquareRice *=2;
+// 		totalRice += currentSquareRice;
+// 		noCase++;
+// 		cout 
+// 		<< "Numéro de case : " << noCase 
+// 		<< " comporte " << currentSquareRice << " grains de riz. \t Total Damier : " 
+// 		<< totalRice <<"\n";
+// 	}
+
+// 	return 0;
+// }
+
 // exercice 4.7
 
 // int convertisseur(string chiffre, vector<string>& v){
