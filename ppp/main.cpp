@@ -1,110 +1,166 @@
 #include "C:\Users\antony\bin\cpp\ppp\std_lib_facilities.h"
 
+
+// exercice 13 - 14
+
 int main()
+
+
+
 {
-	unsigned int scoreJoueur = 0;
-	unsigned int scoreOrdinateur = 0;
-	vector<string> v1 = 
-	{"papier", "pierre", "ciseaux", "papier",
-	 "pierre", "ciseaux", "pierre", "papier", 
-	 "ciseaux", "pierre", "ciseaux", "pierre", 
-	 "papier", "pierre", "ciseaux", "ciseaux"};
+	cout << "Entrez le plafond de recherche de nombres premiers.\n";
+	int plafond = 0;
+	cin >> plafond;
 
-	 vector<string> v2 = 
-	{"papier", "pierre", "ciseaux", "ciseaux",
-	"ciseaux", "pierre", "ciseaux", "pierre",
-	"papier", "pierre", "ciseaux", "papier",
-	"pierre", "ciseaux", "pierre", "papier"};
-
-	vector<string> v3 = 
-	{"ciseaux", "papier", "ciseaux", "ciseaux",
-	"ciseaux", "pierre", "pierre", "pierre",
-	"papier", "pierre", "ciseaux", "papier",
-	"pierre", "papier", "papier", "papier"};
-
-	cout << "Entrez n'importe quel caractère ou chiffre\n";
-	char repAleatoire = 0;
-	cin >> repAleatoire;
-	vector<string> *pVecteur = 0;
-
-	// génération d'un pseudo hasard
-	if (!(repAleatoire % 3))
-		pVecteur = &v3;
-	else if (!(repAleatoire % 2))
-		pVecteur = &v2;
-	else
-		pVecteur = &v1;
-
-	for (string temp : *pVecteur){
+	bool crible[plafond] ;
+	for (int i = 0; i < plafond ; i++)
+		crible[i] = true;
+	cout << endl;
 	
-	int choix = 0;
-	//while (true){
-	
-	cout 
-	<< "1. Pierre\n"
-	<< "2. Papier\n"
-	<< "3. Ciseaux\n"
-	<< "Entrez un chiffre : 1, 2 ou 3 ?\n";
 
-	cin >> choix;
+	for(int i = 2 ; i*i < plafond; i++)
+		for (int j = i; j < plafond; j++)
+			if (j % i == 0 && j != i)
+				crible[j] = false;
 
-	switch(choix){
-		case 1:{
-			if (temp == "pierre")
-				cout << "Joueur joue : pierre. " << "Ordinateur joue pierre : égalité.\n";
-			else if (temp == "papier"){
-				cout << "Joueur joue : pierre. " << "Ordinateur joue papier : vous perdez.\n";
-				scoreOrdinateur++;
-			}
-			else{
-				cout << "Joueur joue : pierre. " << "Ordinateur joue ciseaux : vous gagnez.\n";
-				scoreJoueur++;
-			}
-			break;
-		}
 
-		case 2:{
-			if (temp == "pierre"){
-				cout << "Joueur joue : papier. " << "Ordinateur joue pierre : vous gagnez.\n";
-				scoreJoueur++;
-			}
-			else if (temp == "papier")
-				cout << "Joueur joue : papier. " << "Ordinateur joue papier : égalité.\n";
-			else{
-				cout << "Joueur joue : papier. " << "Ordinateur joue ciseaux : vous perdez.\n";
-				scoreOrdinateur++;
-			}
-			break;
-		}
+	for (int i = 2; i < plafond ; i++)
+		if (crible[i])
+		cout << i << " ";
+	//cout << endl;
 
-		case 3:{
-			if (temp == "pierre"){
-				cout << "Joueur joue : ciseaux. " << "Ordinateur joue pierre : vous perdez.\n";
-				scoreOrdinateur++;
-			}
-			else if (temp == "papier"){
-				cout << "Joueur joue : ciseaux. " << "Ordinateur joue papier : vous gagnez.\n";
-				scoreJoueur++;
-			}
-			else
-				cout << "Joueur joue : ciseaux. " << "Ordinateur joue ciseaux : égalité.\n";
-			break;
-		}	
-	}
-
-//}
-	cout << "Joueur : " << scoreJoueur << "\t" << "Ordinateur : " << scoreOrdinateur << endl;
-	cout <<"Appuyez sur une touche pour continuer\n";
-	// getchar();
-	// system("cls");
+return 0;
 }
 
+// int main()
+// {
+// 	vector<int> listePremiers = {
+// 		2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,
+// 		43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+// 	};
+// 	vector<int> recoltePremiers;
+
+// 	cout << "Entrez le plafond de recherche de nombres premiers.\n";
+// 	int plafond = 0;
+// 	cin >> plafond;
+
+// 	for (int i = 1; i < plafond; i++){
+// 		for (int prime : listePremiers){
+// 			if (i <= prime && i % prime == 0)
+// 				recoltePremiers.push_back(i);
+// 		}
+// 	}
+// 	for (int temp : recoltePremiers)
+// 		cout << "[" << temp << "] "  ;
+// 	return 0;
+// }
+
+
+// int main()
+// {
+// 	unsigned int scoreJoueur = 0;
+// 	unsigned int scoreOrdinateur = 0;
+// 	vector<string> v1 = 
+// 	{"papier", "pierre", "ciseaux", "papier",
+// 	 "pierre", "ciseaux", "pierre", "papier", 
+// 	 "ciseaux", "pierre", "ciseaux", "pierre", 
+// 	 "papier", "pierre", "ciseaux", "ciseaux"};
+
+// 	 vector<string> v2 = 
+// 	{"papier", "pierre", "ciseaux", "ciseaux",
+// 	"ciseaux", "pierre", "ciseaux", "pierre",
+// 	"papier", "pierre", "ciseaux", "papier",
+// 	"pierre", "ciseaux", "pierre", "papier"};
+
+// 	vector<string> v3 = 
+// 	{"ciseaux", "papier", "ciseaux", "ciseaux",
+// 	"ciseaux", "pierre", "pierre", "pierre",
+// 	"papier", "pierre", "ciseaux", "papier",
+// 	"pierre", "papier", "papier", "papier"};
+
+// 	cout << "Entrez n'importe quel caractère ou chiffre\n";
+// 	char repAleatoire = 0;
+// 	cin >> repAleatoire;
+// 	vector<string> *pVecteur = 0;
+
+// 	// génération d'un pseudo hasard
+// 	if (!(repAleatoire % 3))
+// 		pVecteur = &v3;
+// 	else if (!(repAleatoire % 2))
+// 		pVecteur = &v2;
+// 	else
+// 		pVecteur = &v1;
+
+// 	for (string temp : *pVecteur){
+	
+// 	int choix = 0;
+// 	//while (true){
+	
+// 	cout 
+// 	<< "1. Pierre\n"
+// 	<< "2. Papier\n"
+// 	<< "3. Ciseaux\n"
+// 	<< "Entrez un chiffre : 1, 2 ou 3 ?\n";
+
+// 	cin >> choix;
+
+// 	switch(choix){
+// 		case 1:{
+// 			if (temp == "pierre")
+// 				cout << "Joueur joue : pierre. " << "Ordinateur joue pierre : égalité.\n";
+// 			else if (temp == "papier"){
+// 				cout << "Joueur joue : pierre. " << "Ordinateur joue papier : vous perdez.\n";
+// 				scoreOrdinateur++;
+// 			}
+// 			else{
+// 				cout << "Joueur joue : pierre. " << "Ordinateur joue ciseaux : vous gagnez.\n";
+// 				scoreJoueur++;
+// 			}
+// 			break;
+// 		}
+
+// 		case 2:{
+// 			if (temp == "pierre"){
+// 				cout << "Joueur joue : papier. " << "Ordinateur joue pierre : vous gagnez.\n";
+// 				scoreJoueur++;
+// 			}
+// 			else if (temp == "papier")
+// 				cout << "Joueur joue : papier. " << "Ordinateur joue papier : égalité.\n";
+// 			else{
+// 				cout << "Joueur joue : papier. " << "Ordinateur joue ciseaux : vous perdez.\n";
+// 				scoreOrdinateur++;
+// 			}
+// 			break;
+// 		}
+
+// 		case 3:{
+// 			if (temp == "pierre"){
+// 				cout << "Joueur joue : ciseaux. " << "Ordinateur joue pierre : vous perdez.\n";
+// 				scoreOrdinateur++;
+// 			}
+// 			else if (temp == "papier"){
+// 				cout << "Joueur joue : ciseaux. " << "Ordinateur joue papier : vous gagnez.\n";
+// 				scoreJoueur++;
+// 			}
+// 			else
+// 				cout << "Joueur joue : ciseaux. " << "Ordinateur joue ciseaux : égalité.\n";
+// 			break;
+// 		}	
+// 	}
+
+// //}
+// 	cout << "Joueur : " << scoreJoueur << "\t" << "Ordinateur : " << scoreOrdinateur << endl;
+// 	cout <<"Appuyez sur une touche pour continuer\n";
+// 	// getchar();
+// 	// system("cls");
+// }
+
 	
 
 
 
-	return 0;
-}
+// 	return 0;
+// }
 
 
 // exercices 4.8 - 4.9
