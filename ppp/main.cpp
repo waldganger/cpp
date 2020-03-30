@@ -1,36 +1,88 @@
 #include "C:\Users\antony\bin\cpp\ppp\std_lib_facilities.h"
 
-
-// exercice 13 - 14
+//exercice 16
 
 int main()
-
-
-
 {
-	cout << "Entrez le plafond de recherche de nombres premiers.\n";
-	int plafond = 0;
-	cin >> plafond;
+	int tableau[12] = { 12, 14, 16, 14, 8, 99, 99, 63, 27, 99, 99, 57 };
+	int compteurTemporaire = 0;
+	int max = 0;
+	int mode;
+	for (int i = 0; i < 12; i++){
+		for (int j = 0; j < 12; j++){
+			if (tableau[j] == tableau[i]){
+				compteurTemporaire++;
+			}
+		}
+		if (compteurTemporaire > max){
+			max = compteurTemporaire;
+			mode = tableau[i];
+		}
+		compteurTemporaire = 0;
+	}
+	cout << "Le mode est : " << mode << endl;
+	return 0;
+}
 
-	bool crible[plafond] ;
-	for (int i = 0; i < plafond ; i++)
-		crible[i] = true;
-	cout << endl;
+// int main()
+// {
+// 	int n = 0;
+// 	cout << "Entrez le nombre de premiers voulus.\n";
+// 	cin >> n;
+// 	int tableauPremiers[n];
+// 	int decomptePremiers = 0;
+// 	int nombreATester = 1;
+// 	int i;
+// 	while (decomptePremiers < n){
+
+// 		i = 2;
+// 		nombreATester++;
+// 		while (i <= nombreATester){
+// 			if (nombreATester % i == 0 && i != nombreATester){ // le nombre n'est pas entier
+// 				break;
+// 			}
+// 			else{
+// 				tableauPremiers[decomptePremiers] = nombreATester;
+// 				decomptePremiers++;
+// 				break;
+// 			}
+// 			i++;
+// 		}
+// 	}
+// 	//affichage de l'array
+// 	for(int i= 0; i < n; i++)
+// 		cout << " "<<tableauPremiers[i] << " ";
+// 	cout << endl;
+// 	return 0;
+// }
+
+// // exercice 13 - 14
+
+// int main()
+// {
+// 	cout << "Entrez le plafond de recherche de nombres premiers.\n";
+// 	int plafond = 0;
+// 	cin >> plafond;
+
+// 	bool crible[plafond] ;
+// 	for (int i = 0; i < plafond ; i++)
+// 		crible[i] = true;
+// 	cout << endl;
 	
 
-	for(int i = 2 ; i*i < plafond; i++)
-		for (int j = i; j < plafond; j++)
-			if (j % i == 0 && j != i)
-				crible[j] = false;
+// 	for(int i = 2 ; i*i < plafond; i++)
+// 		for (int j = i; j < plafond; j++)
+// 			if (j % i == 0 && j != i)
+// 				crible[j] = false;
 
 
-	for (int i = 2; i < plafond ; i++)
-		if (crible[i])
-		cout << i << " ";
-	//cout << endl;
+// 	for (int i = 2; i < plafond ; i++)
+// 		if (crible[i])
+// 		cout << i << " ";
+// 	//cout << endl;
 
-return 0;
-}
+// return 0;
+// }
 
 // int main()
 // {
