@@ -1,28 +1,71 @@
 #include "C:\Users\antony\bin\cpp\ppp\std_lib_facilities.h"
 
-//exercice 16
-
+// exercice 17
 int main()
 {
-	int tableau[12] = { 12, 14, 16, 14, 8, 99, 99, 63, 27, 99, 99, 57 };
-	int compteurTemporaire = 0;
-	int max = 0;
-	int mode;
-	for (int i = 0; i < 12; i++){
-		for (int j = 0; j < 12; j++){
+	string tableau[10] = { "eggs", "bacon", "cheese", "riz", "aaron a aaronson", 
+	"spinach", "zorglub", "milk", "eggs", "spaghetti" };
+	
+	string motTemporaire;
+	string plusPetitMotJusquici = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz";
+	string plusGrandMotJusquici;
+
+
+	int compteurTemporaireMode = 0;
+	int maxOccurences = 0;
+	string mode = "";
+	for (int i = 0; i < 10; i++){
+		motTemporaire = tableau[i];
+		if (motTemporaire < plusPetitMotJusquici)
+			plusPetitMotJusquici = motTemporaire;
+		else if (motTemporaire > plusGrandMotJusquici)
+			plusGrandMotJusquici = motTemporaire;
+
+		for (int j = 0; j < 10; j++){
 			if (tableau[j] == tableau[i]){
-				compteurTemporaire++;
+				compteurTemporaireMode++;
 			}
+		
 		}
-		if (compteurTemporaire > max){
-			max = compteurTemporaire;
+		if (compteurTemporaireMode > maxOccurences){
+			maxOccurences = compteurTemporaireMode;
 			mode = tableau[i];
 		}
-		compteurTemporaire = 0;
+
+
+		compteurTemporaireMode = 0;
+
 	}
 	cout << "Le mode est : " << mode << endl;
+	cout << "Le plus petit mot est : " << plusPetitMotJusquici << endl;
+	cout << "Le plus grand mot est : " << plusGrandMotJusquici << endl;
 	return 0;
 }
+
+
+// exercice 16
+
+// int main()
+// {
+// 	int tableau[12] = { 12, 14, 16, 14, 8, 99, 99, 63, 27, 99, 99, 57 };
+// 	int compteurTemporaire = 0;
+// 	int max = 0;
+// 	int mode;
+// 	for (int i = 0; i < 12; i++){
+// 		for (int j = 0; j < 12; j++){
+// 			if (tableau[j] == tableau[i]){
+// 				compteurTemporaire++;
+// 			}
+// 		}
+// 		if (compteurTemporaire > max){
+// 			max = compteurTemporaire;
+// 			mode = tableau[i];
+// 		}
+// 		compteurTemporaire = 0;
+// 	}
+// 	cout << "Le mode est : " << mode << endl;
+// 	return 0;
+// }
 
 // int main()
 // {
